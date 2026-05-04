@@ -1,6 +1,8 @@
-RADAR: RFI Aware Detection of Anomalous Radio-Technosignatures Pipeline
+# RADAR: RFI Aware Detection of Anomalous Radio-Technosignatures Pipeline
 
-1. Scientific Goal
+## 1. Scientific Goal and Motivation
+
+With access to large-scale commensal datasets from COSMIC, manual inspection is no longer feasible. RADAR was developed to automate the reduction of millions of signals into a tractable set of scientifically meaningful candidates.
 
 RADAR is a modular data analysis pipeline designed to reduce large-scale radio astronomy datasets (VLA and MeerKAT) into a small set of candidate technosignature signals by systematically removing radio-frequency interference (RFI).
 
@@ -10,29 +12,83 @@ The scientific goal is to improve the efficiency of technosignature searches by 
 - beam geometry constraints
 - temporal consistency checks
 
-2. Code Interface / How to Run
+---
+
+## 2. Code Interface / How to Run
 
 The pipeline is implemented in Python using a combination of notebooks and scripts.
 
 Typical workflow:
 
-1. Run preprocessing notebooks to reformat data:
-   - MeerKAT_pre_processing
-   - VLA_COSMIC_pre_processing 
+- Run preprocessing notebooks to reformat data:
+  - MeerKAT_pre_processing
+  - VLA_COSMIC_pre_processing
 
-2. Execute filtering stages:
-   - frequency-based RFI removal
-   - SNR and drift filtering
-   - beam multiplicity analysis
+- Execute filtering stages:
+  - frequency-based RFI removal
+  - SNR and drift filtering
+  - beam multiplicity analysis
 
-3. Output is generated as:
-   - cleaned `.csv` / `.pkl` catalogs
-   - filtered candidate datasets
-   - diagnostic plots (`.png`)
+- Output is generated as:
+  - cleaned `.csv` / `.pkl` catalogs
+  - filtered candidate datasets
+  - diagnostic plots (`.png`)
 
-Users can modify:
-- SNR thresholds
-- drift rate cuts
-- beam overlap criteria
+Users interact with the pipeline by modifying filtering parameters directly in notebooks.
 
-directly inside the notebooks.
+---
+
+## 3. Pipeline Overview
+
+RADAR processes data through the following stages:
+
+1. Data ingestion (SETICORE / BLUSE outputs)
+2. Schema normalization (MeerKAT → VLA format)
+3. Known RFI frequency excision
+4. Adaptive SNR and drift filtering
+5. Beam multiplicity and spatial overlap analysis
+6. Temporal consistency checks across observations
+7. Final classification:
+   - Clean candidate
+   - Possible RFI
+   - Strong RFI
+
+---
+
+## 4. Outputs
+
+The pipeline produces:
+
+- Cleaned hit catalogs (`.csv`, `.pkl`)
+- Intermediate filtered datasets
+- RFI classification tables
+- Diagnostic plots:
+  - beam overlap visualizations
+  - waterfall plots
+  - signal distribution histograms
+
+---
+
+## 5. Testing and Validation
+
+The pipeline includes multiple non-trivial validation tests:
+
+1. Beam Multiplicity Validation  
+   Ensures known RFI sources are correctly identified through multi-beam detection patterns.
+
+2. RFI Reduction Efficiency  
+   Tracks dataset reduction at each filtering stage to quantify algorithm performance.
+
+3. Computational Performance  
+   Evaluates runtime and scalability on large datasets.
+
+---
+
+## Notes
+
+This project is intentionally designed as a modular scientific codebase rather than a single script. Each stage of processing can be modified or replaced independently, allowing extension to other telescopes or datasets.
+
+---
+
+## Author
+Ella Bishop
