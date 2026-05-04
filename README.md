@@ -1,9 +1,38 @@
-The five files above create RADAR. Through their implimentation, one should be able to preliminarily reduce their own data and then carry out beam RFI analysis based on the type of telescope the data is coming from. This pipeline is tailored to VLA and MeerKAT data but can easily be updated to include other telescopes. 
+RADAR: RFI Aware Detection of Anomalous Radio-Technosignatures Pipeline
 
-The order of operation for these notebooks is as follows:
+1. Scientific Goal
 
-Preliminary Notes: The known-s-band_RFI file is a compilation of known RFI frequencies from uploaded from the NRAO and MeerKAT website and can be used as a reference for the preliminary frequency cleans. One can also upload more known RFI frequency files to better suit their data. Also note that the frequencies above 2GHz file is a method for sorting through files directly from their repository to eliminate hits above 2GHz from files before downloading them to clean. 
+RADAR is a modular data analysis pipeline designed to reduce large-scale radio astronomy datasets (VLA and MeerKAT) into a small set of candidate technosignature signals by systematically removing radio-frequency interference (RFI).
 
-1) After loading in your known RFI frequency files, then implement the file_splitting.ipynb to get rid of preliminary known RFI frequecy ranges. This stage also begins eliminating SNR, Power, and Drift Rate values that are for certian indicative of the hit being RFI. These can be updated to fit ones preferences but generally are a very large threshold. This notebook also helps compile the hits into fewer large files to make loading in hundreds of files less time consuming. 
+The scientific goal is to improve the efficiency of technosignature searches by combining:
+- frequency-domain filtering
+- signal-to-noise heuristics
+- beam geometry constraints
+- temporal consistency checks
 
-2) Once the preliminary clean of the data has been compiled into anywhere from 1-10 files ideally, then you are ready to run the Main_RFI_filtering notebook on your data. Here is where the customization begins. You can mess around with the arbitraty thresholds for beam overlapping, SNR, drift rate, power ratios for incoherent and coherent, and so on. The ones currently implemented are specified for VLA and MeerKAT but are easily interchangable. 
+2. Code Interface / How to Run
+
+The pipeline is implemented in Python using a combination of notebooks and scripts.
+
+Typical workflow:
+
+1. Run preprocessing notebooks to reformat data:
+   - MeerKAT_pre_processing
+   - VLA_COSMIC_pre_processing 
+
+2. Execute filtering stages:
+   - frequency-based RFI removal
+   - SNR and drift filtering
+   - beam multiplicity analysis
+
+3. Output is generated as:
+   - cleaned `.csv` / `.pkl` catalogs
+   - filtered candidate datasets
+   - diagnostic plots (`.png`)
+
+Users can modify:
+- SNR thresholds
+- drift rate cuts
+- beam overlap criteria
+
+directly inside the notebooks.
