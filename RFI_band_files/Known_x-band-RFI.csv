@@ -1,0 +1,12 @@
+start_frequency,end_frequency,label
+9300,9900,SAR Mapping satellites
+9300,9500,Weather Radar
+10740,10770,Microwave link
+10820,10850,Microwave link
+10957,10993,Microwave link
+11037,11073,Microwave link
+11230,11260,Microwave link
+11310,11340,Microwave link
+11447,11483,Microwave link
+11527,11563,Microwave link
+11700,12000,Strong RFI all along the geostationary orbit path
