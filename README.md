@@ -79,9 +79,6 @@ The pipeline includes multiple non-trivial validation tests:
 2. RFI Reduction Efficiency  
    Tracks dataset reduction at each filtering stage to quantify algorithm performance.
 
-3. Computational Performance  
-   Evaluates runtime and scalability on large datasets.
-
 ---
 
 ## Notes
