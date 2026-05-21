@@ -25,14 +25,18 @@ Typical workflow:
   - VLA_COSMIC_pre_processing
 
 - Execute filtering stages:
-  - frequency-based RFI removal
-  - SNR and drift filtering
-  - beam multiplicity analysis
+  - RFI_anomoly_analysis
+    - frequency-based RFI removal
+    - SNR and drift filtering
+    - beam multiplicity analysis
 
 - Output is generated as:
   - cleaned `.csv` / `.pkl` catalogs
   - filtered candidate datasets
-  - diagnostic plots (`.png`)
+  - diagnostic plots  (`.png`)
+  
+- Further data cleaning stats:
+  - view cleaning results with data_visualization 
 
 Users interact with the pipeline by modifying filtering parameters directly in notebooks.
 
