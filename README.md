@@ -93,3 +93,7 @@ This project is intentionally designed as a modular scientific codebase rather t
 
 ## Author
 Ella Bishop
+
+## Publication
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20331585.svg)](https://doi.org/10.5281/zenodo.20331585)
+
