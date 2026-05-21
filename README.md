@@ -87,7 +87,7 @@ The pipeline includes multiple non-trivial validation tests:
 
 ## Notes
 
-This project is intentionally designed as a modular scientific codebase rather than a single script. Each stage of processing can be modified or replaced independently, allowing extension to other telescopes or datasets.
+This project is intentionally designed as a modular scientific codebase rather than a single script. Each stage of processing can be modified or replaced independently, allowing extension to other telescopes or datasets. You are encouraged to fork your own repository, make changes, and upgrade existing methods for RFI filtering to the pipeline.
 
 ---
 
